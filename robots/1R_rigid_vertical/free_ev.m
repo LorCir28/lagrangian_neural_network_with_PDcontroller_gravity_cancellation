@@ -4,7 +4,7 @@ function free_ev(samples,u_val,d_val,g0_val,m_val,I_val)
 %   In console, to run function, vals = [u_val,d_val,g0_val,m_val,I_val] = deal(0,1,9.81,1,0.5)
 %
     syms q qd qdd u d g0 I m real
-    fileID = fopen('dataset.txt','w');
+    fileID = fopen('dataset_valid.txt','w');
     wait_bar = waitbar(0,'1','Name','Creating dataset','CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
 
     for i=1:samples

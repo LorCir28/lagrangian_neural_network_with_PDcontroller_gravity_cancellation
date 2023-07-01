@@ -1,7 +1,7 @@
 import pickle as pk
 
-file = open('dataset.txt','r')
-out = open('rigid_vertical', 'wb')
+file = open('dataset_valid.txt','r')
+out = open('rigid_vertical_valid', 'wb')
 
 lines = file.readlines()
 file.close()
