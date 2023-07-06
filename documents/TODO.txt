@@ -1,0 +1,5 @@
+- Far funzionare elastic
+- Rifare train baseline
+- Stampare grafici loss (train e test), accuracy (train e test), traiettorie ed errore x ogni esperimento
+- Noise
+- Controllo extra
