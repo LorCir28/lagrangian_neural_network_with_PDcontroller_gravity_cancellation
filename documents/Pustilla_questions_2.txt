@@ -7,3 +7,5 @@
 - riguardo l'aggiunta del noise, va bene se lo abbiamo aggiunto nelle velocità contenute nel dataset?
 
 - suggerimenti sul punto extra
+
+- Il theta dell'elastic joint, come deve essere relazionato con q?
