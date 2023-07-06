@@ -1,0 +1,9 @@
+- I grafici ottenuti sul robot sono adeguati? sono coerenti con il nostro obiettivo?
+
+- abbiamo ipotizzato m=1, d=1, r=sqrt(2) e di conseguenza I=(1/2)*m*r^2=1. è corretto fare queste ipotesi? Siamo stati obbligati a non mantenere i parametri generici per testare il modello
+
+- Siamo coerenti con la prima richiesta del progetto? (identificare il modello vuol dire mostrare quale traiettoria predice e confrontarla con la ground truth?)
+
+- riguardo l'aggiunta del noise, va bene se lo abbiamo aggiunto nelle velocità contenute nel dataset?
+
+- suggerimenti sul punto extra
