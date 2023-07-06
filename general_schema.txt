@@ -1,0 +1,22 @@
+RIGID ROBOT:
+
+- test loss and train loss (baseline vs lnn)
+
+- test accuracy and train accuracy (baseline vs lnn)
+
+	NO ERROR ON THE VELOCITIES:
+
+	- trajectory (baseline vs lnn vs truth)
+
+	- error (baseline vs lnn)
+
+	WITH ERROR ON THE VELOCITIES:
+
+	- trajectory (baseline vs lnn vs truth)
+
+	- error (baseline vs lnn)
+
+
+
+
+SAME SCHEMA FOR THE ELASTIC ROBOT
