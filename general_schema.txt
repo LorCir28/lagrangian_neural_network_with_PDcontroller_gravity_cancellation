@@ -4,13 +4,13 @@ RIGID ROBOT:
 
 - test accuracy and train accuracy (baseline vs lnn)
 
-	NO ERROR ON THE VELOCITIES:
+	NO NOISE ON THE VELOCITIES:
 
 	- trajectory (baseline vs lnn vs truth)
 
 	- error (baseline vs lnn)
 
-	WITH ERROR ON THE VELOCITIES:
+	WITH NOISE ON THE VELOCITIES:
 
 	- trajectory (baseline vs lnn vs truth)
 
