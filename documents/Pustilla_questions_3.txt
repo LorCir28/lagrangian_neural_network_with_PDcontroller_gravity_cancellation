@@ -1,0 +1,6 @@
+- elastico: abbiamo sommato le energie del link e del motore e abbiamo ottenuto le equazioni delle accelerazioni che abbiamo messo dentro odeint per ottenere le traiettorie date le condizioni iniziali.
+
+- spiegare i risultati
+
+- controllore
+

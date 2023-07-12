@@ -1,18 +1,24 @@
 RIGID ROBOT:
 
+- coherent data [mass found by inverting the formula of the density of mass of the alluminum]
+
 - test loss and train loss (baseline vs lnn)
 
-- test accuracy and train accuracy (baseline vs lnn)
+- energy conservation (baseline vs lnn vs measure)
 
-	NO ERROR ON THE VELOCITIES:
+	NO NOISE ON THE POSITIONS:
 
-	- trajectory (baseline vs lnn vs truth)
+	- more trajectories (trajectory and error)
+
+	- trajectory (baseline vs lnn vs measure)
 
 	- error (baseline vs lnn)
 
-	WITH ERROR ON THE VELOCITIES:
+	WITH NOISE ON THE POSITIONS:
 
-	- trajectory (baseline vs lnn vs truth)
+	- more trajectories
+
+	- trajectory (baseline vs lnn vs measure)
 
 	- error (baseline vs lnn)
 
