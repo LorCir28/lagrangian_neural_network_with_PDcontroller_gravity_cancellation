@@ -1,0 +1,7 @@
+Inserted data:
+init_pos = 0
+init_vel = 10
+
+Actual data:
+Initial position:  0.0
+Initial velocity:  3.7069464

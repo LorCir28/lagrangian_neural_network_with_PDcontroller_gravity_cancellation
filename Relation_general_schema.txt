@@ -1,0 +1,15 @@
+- Introduction (paper, letteratura) C
+- NN architectures C
+- Dataset generation C 
+- Robot parameters L
+
+- Rigid L
+	-> Dynamic modeling
+	-> Results
+
+- Elastic C
+	-> Dynamic modeling (paper stiffness)
+	-> Results
+
+- Conclusion L
+- Bibliography (Letteratura) L
