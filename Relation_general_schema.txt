@@ -1,4 +1,4 @@
-- Introduction (paper) C
+- Introduction (paper, letteratura) C
 - NN architectures C
 - Dataset generation C 
 - Robot parameters L
