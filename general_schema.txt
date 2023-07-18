@@ -6,11 +6,11 @@ RIGID ROBOT:
 
 - energy conservation (baseline vs lnn vs measure)
 
-<<<<<<< HEAD
+
 	NO NOISE ON THE POSITIONS:
-=======
+
 	NO NOISE ON THE VELOCITIES:
->>>>>>> ddb9d42451d3b863b6bb2002528b5e8a3bd93945
+
 
 	- more trajectories (trajectory and error)
 
@@ -18,11 +18,11 @@ RIGID ROBOT:
 
 	- error (baseline vs lnn)
 
-<<<<<<< HEAD
+
 	WITH NOISE ON THE POSITIONS:
-=======
+
 	WITH NOISE ON THE VELOCITIES:
->>>>>>> ddb9d42451d3b863b6bb2002528b5e8a3bd93945
+
 
 	- more trajectories
 
