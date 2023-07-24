@@ -1,14 +1,20 @@
-- Introduction (paper, letteratura) C
-- NN architectures C
-- Dataset generation C 
-- Robot parameters L
+- Introduction (paper, letteratura) C OK
+- Parametric Lagrangian C OK
+
+- NN architectures C OK
+	-> Dataset generation C OK
+
+- Robot L
+	-> Robot parameters
+	-> Rigid Dynamic modeling
+	-> Elastic Dynamic modeling
 
 - Rigid L
-	-> Dynamic modeling
+	-> NN setup OK
 	-> Results
 
 - Elastic C
-	-> Dynamic modeling (paper stiffness)
+	-> NN setup OK
 	-> Results
 
 - Conclusion L
