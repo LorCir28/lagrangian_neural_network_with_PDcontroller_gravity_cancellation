@@ -1,4 +1,4 @@
-- Introduction (paper, letteratura) C OK
+	- Introduction (paper, letteratura) C OK
 - Parametric Lagrangian C OK
 
 - NN architectures C OK
