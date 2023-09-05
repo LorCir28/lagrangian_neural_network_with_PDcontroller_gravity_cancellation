@@ -65,7 +65,7 @@ Our project uses both a baseline neural network and a LNN to learn the Lagrangia
 \begin{itemize}
     \item Section \ref{sec:parmlag} introduces a parametric approach to the Euler-Lagrange equations based on Lagrangian functions, as proposed in \cite{lnncranmer}.
 
-    \item Section \ref{sec:robot} presents the dynamic models of the robots used in the simulations.
+    \item Section \ref{sec:robot} presents the dynamic models of the robots and the PD controller with gravity cancellation used in the simulations.
     
     \item Section \ref{sec:nn_arch} presents the architectures of the neural networks used in the simulations.
 
@@ -172,7 +172,7 @@ The potential energy is
     U_g=-mg_0d\, \\cos(q),
 \end{equation}
 \begin{equation}
-    \nonumber
+    \label{eq:gravity}
     g(q)=\left(\frac{dU_g}{dq}\right)^T=mg_0d\, \sin(q).
 \end{equation} \\
 
@@ -254,6 +254,16 @@ Accordingly, the dynamics of the system can be expressed as
     \end{bmatrix}.
 \end{equation}
 
+\subsubsection{Rigid PD controller with gravity cancellation}
+To control the configuration of the robot, we use a PD controller with gravity cancellation,i.e.,
+
+\begin{equation}
+    \label{eq:controller}
+    u = k_p(q_d-q) - k_d\dot{q} + g(q).
+\end{equation}
+
+where $k_p$, $k_d > 0$ are the control gains, and $q_d$ is the desired joint position. The above controller guarantees the equilibrium state $(q_d,0)$ to be globally asymptotically stable.
+\newline
 
 %---> Elastic
 \subsection{Robot elastic model}
@@ -670,7 +680,72 @@ What we have seen in previous simulations is repeated now. Especially for the no
 
 In this last simulation, however, both architectures suffer more from the introduction of noise. With the disturbance of the measurement from which to predict trajectories, the NN baseline again exhibits abnormal behavior as in \textit{Simulation 2}. The LNN is also relatively more distressed than in previous cases. It can be seen from the graph in Figure \ref{fig:rigid_150degrees_05rads}, how from the very beginning of the trajectory, the prediction of the LNN turns out to lag behind the ground truth, with this effect increasing with time. This fact is also confirmed by the values in table \ref{tab:rigid_rmse_3}. We also note that the total energy of the LNN, compared to the previous simulations, undergoes a slight deviation from the actual total energy. However, overall the LNN again maintains better behavior than the baseline NN.
 
+\subsubsection{Control simulations}
+The controller \eqref{eq:controller} will be applied to both the dynamic model derived with the Euler-Lagrange equations and the model estimated with the LNN, testing its performance in different scenarios. To obtain the conditions for the equilibrium state to be globally asymptotically stable, we set the control gains as follows
 
+\begin{equation}
+    \nonumber
+    k_p = 2, \qquad k_d = 0.5.
+\end{equation}
+
+These values come also from practical tests, aimed at better appreciating the development of the control action during simulations.\\
+
+\textbf{Simulation 1:} \textbf{Controller action with initial conditions $q(0)=0\, rad$,  $\dot{q}(0)=0\, \frac{rad}{s}$, and one final state $q_d=\frac{\pi}{2} \, rad$,  $\dot{q_d}=0 \, \frac{rad}{s}$}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/final_results/rigid/control/one_pose.png}
+    \caption{\textit{Simulation 1}. Plots of the controller action for initial conditions $q(0)=0\, rad$, $\dot{q}(0)=0\, \frac{rad}{s} $ and final state $q_d=\frac{\pi}{2} \, rad$,  $\dot{q_d}=0 \, \frac{rad}{s}.$}
+    \label{fig:single_pose}
+\end{figure}
+
+As we can see from figure \ref{fig:single_pose}, the good results of the rigid model estimated with LNN continue to manifest themselves. From the graphs of figure \ref{fig:single_pose} we can appreciate how, once the desired position has been reached, the controller in both cases produces the value that perfectly balances the action of gravity on the robot. As we can see from the table \ref{tab:gravity_single_pose} the gravity measured in the equilibrium state is very similar, almost equal, comparing the values of the ground truth and the LNN model.
+
+\begin{table}
+    \centering
+    \caption{\textit{Simulation 1.} Measured gravity at $q_d=\frac{\pi}{2} \, rad$,  $\dot{q_d}=0 \, \frac{rad}{s}.$}
+    \begin{tabular}{P{2.5cm}P{2.5cm}P{2.5cm}} 
+    \hline\hline
+    \textbf{Configuration} & \textbf{Truth} & \textbf{LNN} \\ 
+    \hline
+    $\pi/2$ & $0.3679\, N$& $0.3658\, N$\\
+    \hline\hline
+    \end{tabular}
+    \label{tab:gravity_single_pose}    
+\end{table}
+
+\textbf{Simulation 2:} \textbf{Controller action with initial conditions $q(0)=\frac{\pi}{4}\, rad$,  $\dot{q}(0)=0\, \frac{rad}{s}$, final states}
+
+\begin{equation}
+    \nonumber
+    q_{e_1}=\left(\frac{\pi}{2},0\right) \qquad q_{e_2}=\left(\frac{\pi}{4},0\right) \qquad q_{e_3}=\left(-\frac{\pi}{4},0\right).
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/final_results/rigid/control/multi_pose.png}
+    \caption{\textit{Simulation 2}. Plots of the controller action for initial conditions $q(0)=\frac{\pi}{4}\, rad$, $\dot{q}(0)=0\, \frac{rad}{s} $ and final states $q_{e_1},q_{e_2},q_{e_3}.$}
+    \label{fig:multi_pose}
+\end{figure}
+
+Again, the graphs in figure \ref{fig:multi_pose} show good results, with only a slight discrepancy in the control action. This confirms the goodness of the dynamic model of the rigid robot estimated with LNN. Looking at the measured gravity in table \ref{tab:gravity_multi_pose}, we see how the value reported by the LNN seems to undergo an increase in error whenever the final state changes. This happens most likely because the model was not towed enough over those locations.
+
+\begin{table}
+    \centering
+    \caption{\textit{Simulation 2.} Measured gravity at $q_{e_1},q_{e_2},q_{e_3}.$}
+    \begin{tabular}{P{2.5cm}P{2.5cm}P{2.5cm}} 
+    \hline\hline
+    \textbf{Configuration} & \textbf{Truth} & \textbf{LNN} \\ 
+    \hline
+    $\pi/2$ & $0.3679\, N$& $0.3679\, N$\\
+    \hline
+    $\pi/4$ & $0.2592\, N$& $0.2587\, N$\\
+    \hline
+    $-\pi/4$ & $-0.2601\, N$& $-0.2575\, N$\\
+    \hline\hline
+    \end{tabular}
+    \label{tab:gravity_multi_pose}    
+\end{table}
 
 %---> Networks setup
 \subsection{Elastic case}
