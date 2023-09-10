@@ -1,7 +1,0 @@
-Inserted data:
-init_pos = np.pi
-init_vel = 0.2
-
-Actual data:
-Initial position:  1.3321031
-Initial velocity:  0.07413893
